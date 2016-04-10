@@ -526,6 +526,7 @@ angular.module('W3FWIS', [ 'GoogleSpreadsheets', 'GoogleDrive', 'W3FSurveyLoader
 										questionid: note.questionid,
 										date: new Date().format(),
 										party: $rootScope.participant,
+										user: note.user,
 										field: note.field,
 										note: note.note
 									};
@@ -548,6 +549,7 @@ angular.module('W3FWIS', [ 'GoogleSpreadsheets', 'GoogleDrive', 'W3FSurveyLoader
 										questionid: note.questionid,
 										date: note.date,
 										party: $rootScope.participant,
+										user: note.user,
 										field: note.field,
 										note: note.note,
 										edited: note.edited,
@@ -922,6 +924,7 @@ angular.module('W3FWIS', [ 'GoogleSpreadsheets', 'GoogleDrive', 'W3FSurveyLoader
 						party: $rootScope.participant,
 						field: $scope.field,
 						note: $scope.newNote,
+						user: $rootScope.userEmail,
 						create: true
 					});
 
