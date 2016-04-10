@@ -39,12 +39,10 @@ The Angular.js application is found in this repository, and should be deployed t
 The php proxy also takes care of storing uploaded files, using a Google Files API instance attached to a defined google account, and then sharing the files with the researcher/reviewer/coordinator as the survey is loaded when moving between states. 
 
 (2) Survey Definitions
-These are found in the Templates folder in Web Foundation Web Index Survey 2014 with two sheets: one defining the sections of the survey, and the other defining the questions in each section.
-
-A template Answers sheet is also found in the Templates folder.
+These are found in the ```resources``` folder as XLSX sheets and should be uploaded to Google Drive, converted into Google Sheets.
 
 (3) Back-end scripts
-These are attached to a Control Sheet spreadsheet from which the current state of surveys can be seen and reviewed.
+These are found in the ```gdocs-scripts``` folder and shoult be attached to the Control Sheet spreadsheet from which the current state of surveys can be seen and reviewed.
 
 Triggers need to be configured to be run the scripts on updates to the spreadsheet. 
 
@@ -69,7 +67,7 @@ Only limited testing of this process has been carried out, so make sure you have
 
 This sheet will need to be made globally readable. Often Google Apps for your Organisation file permissions prevent files owned by organisation accounts from being shared to/published to non-logged in users outside the organistion domain. As a result you may need to create this new sheet with a personal Google account.
 
-The 2014 Open Data Barometer Master Question Sheet to copy [is found here](https://docs.google.com/spreadsheet/ccc?key=0ApqzJROt-jZ0dGNoZFFtMnB3dVctNWxyc295dENFWHc&usp=sharing) or an Excel copy is located in the /resources/ folder. 
+An Excel copy of the question sheet is located in the /resources/ folder. 
 
 [ToDo: Upload Excel version of this to repository]
 
@@ -79,15 +77,11 @@ Sections are defined on the Sections sheet, and questions on the Question sheet.
 
 Survey descriptions can include Markdown. 
 
-Notes:
-
-* At present this will need to be imported/copied to an [old version Google Spreadsheet](https://support.google.com/docs/answer/3544847?hl=en) and should not be updated to the new sheets, as otherwise [certain cross-site issues occur](https://github.com/practicalparticipation/barometer-survey-tool/issues/2).  
-
 (3) Set the sharing settings so that anyone with the link can view this spreadsheet. 
 
 ### Set up the server side component
 
-(1) Checkout the code from https://github.com/practicalparticipation/barometer-survey-tool and point a domain / subdomain to this directory
+(1) Checkout the code from https://github.com/opendataservices/survey-tool and point a domain / subdomain to this directory
 
 (2) Go to the Google Developer Console at https://console.developers.google.com and
 
@@ -120,6 +114,8 @@ http://[yourmachine]/proxy/proxy.php?ping
 http://[yourmachine]/proxy/proxy.php?http://example.org
 ```
 See the [instructions] (https://github.com/Esri/resource-proxy/tree/master/PHP) for more advanced settings and troubleshooting.
+
+(4) Update the hardcoded URLS in w3f-angular-spreadsheets.js at lines 75 and 129
 
 ### Set up the Control Sheet
 

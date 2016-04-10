@@ -14,18 +14,22 @@
 		</label>
 	</div>
 	
-	
 	<div ng-if="question.type == 'Sum'" class="answer-sum" sum-question="question">
 		{{ response.response }}
 	</div>
 
-	<div class="question-title">
+	<div class="question-title" ng-if="question.type != 'Heading'">
 		<h3>
 			{{ question.questionid.split('.').reverse()[0]}}: <em><label for="question-{{ question.questionid }}">{{ question.question }}</label></em>
 		</h3>
 	</div>
-	
 
+	<div class="question-title" ng-if="question.type == 'Heading'">
+		<h2>
+			{{ question.questionid.split('.').reverse()[0]}}: <em><label for="question-{{ question.questionid }}">{{ question.question }}</label></em>
+		</h2>
+	</div>
+	
 	<p ng-if="question.helplink" class="helplink">
 		<a href="{{question.helplink}}" target="w3f-guidance">Further question guidance &rarr;</a>
 	</p>
@@ -71,7 +75,7 @@
 
 			<label>
 				Score:
-				<fancy-select ng-model="response.response" class="answer-select scale-select" id="question-{{ question.questionid }}" ng-options="val.toString() as val for val in [].range(11)" with-null="-" ng-disabled="readOnly || commentOnly" />
+				<fancy-select ng-model="response.response" class="answer-select scale-select" id="question-{{ question.questionid }}" ng-options="val.toString() as val for val in [].range(5)" with-null="-" ng-disabled="readOnly || commentOnly" />
 			</label>
 		</span>
 	</div>

@@ -4,7 +4,7 @@
 		<a class="note-delete icon-cancel-circle" title="Delete this note" ng-if="note.party == participant" ng-click="delete($index)"></a>
 	</div>
 
-	<div ng-bind-html="'**' + note.party + '**: ' + note.note | markdown" ng-if="!note.editing"></div>
+	<div ng-bind-html="'**' + note.party + '** (' + note.user + '): \n' + note.note | markdown" ng-if="!note.editing"></div>
 
 	<div class="note-edit-box" ng-if="note.editing">
 		<textarea ng-model="note.editValue"></textarea>
