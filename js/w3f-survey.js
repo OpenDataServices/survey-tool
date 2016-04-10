@@ -18,9 +18,9 @@
  */
 
 
-var MASTER_KEY = '1K_WrEt2wbvcPAu7jMk60eGKoEmidpm5lzHqREN_ILs4';
-var CLIENT_ID = '1083194213469-brjujs3utpn68cu618ur9f6idrncm2v6.apps.googleusercontent.com';
-var SERVICE_ACCOUNT = '1083194213469-osgq2aiskq8qenu8e7rb8ndouo3f6shk@developer.gserviceaccount.com';
+var MASTER_KEY = '1sgALrROoskjpH0iE3RBCqwjh9z1cljJIGqv-TX9brKY';
+var CLIENT_ID = '383174317288-8ou7gq7vkg1orpkb9min96ngko2jli80.apps.googleusercontent.com';
+var SERVICE_ACCOUNT = 'ogp-survey@ogp-survey.iam.gserviceaccount.com';
 var SCOPE = 'https://spreadsheets.google.com/feeds https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/drive.file';
 
 // Gimme a range op!

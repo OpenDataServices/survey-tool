@@ -71,7 +71,7 @@
 
 			<label>
 				Score:
-				<fancy-select ng-model="response.response" class="answer-select scale-select" id="question-{{ question.questionid }}" ng-options="val.toString() as val for val in [].range(11)" with-null="-" ng-disabled="readOnly || commentOnly" />
+				<fancy-select ng-model="response.response" class="answer-select scale-select" id="question-{{ question.questionid }}" ng-options="val.toString() as val for val in [].range(5)" with-null="-" ng-disabled="readOnly || commentOnly" />
 			</label>
 		</span>
 	</div>
