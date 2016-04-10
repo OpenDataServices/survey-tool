@@ -817,7 +817,7 @@ angular.module('W3FWIS', [ 'GoogleSpreadsheets', 'GoogleDrive', 'W3FSurveyLoader
 				$scope.$on('response-updated', function() {
 					$scope.sectionAnswers = [];
 					$scope.sectionQuestions = _.filter($scope.questions, function(q) {
-						if(q.sectionid == $scope.sectionid) {
+						if(q.type != 'Heading' && q.sectionid == $scope.sectionid) {
 							if($scope.responses[q.questionid].response != undefined && $scope.responses[q.questionid].response !== '') {
 								$scope.sectionAnswers.push($scope.responses[q.questionid]);
 							}

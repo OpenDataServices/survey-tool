@@ -19,10 +19,16 @@
 		{{ response.response }}
 	</div>
 
-	<div class="question-title">
+	<div class="question-title" ng-if="question.type != 'Heading'">
 		<h3>
 			{{ question.questionid.split('.').reverse()[0]}}: <em><label for="question-{{ question.questionid }}">{{ question.question }}</label></em>
 		</h3>
+	</div>
+
+	<div class="question-title" ng-if="question.type == 'Heading'">
+		<h2>
+			{{ question.questionid.split('.').reverse()[0]}}: <em><label for="question-{{ question.questionid }}">{{ question.question }}</label></em>
+		</h2>
 	</div>
 	
 
