@@ -67,15 +67,28 @@ angular.module('W3FSurveyLoader', [ 'GoogleSpreadsheets' ])
 				}
 
 				if($rootScope.userEmail) {
+					console.log("Checking for " +  $rootScope.userEmail + " (" +  hex_md5($rootScope.userEmail) + ") in " + $rootScope.control['Reviewer']);
 					// Who even are you?
 					if($rootScope.userEmail == $rootScope.control['Coordinator Email']) {
 						$rootScope.participant = 'Coordinator';
+						$rootScope.role = 'Coordinator';
 					}
 					else if(hex_md5($rootScope.userEmail) == $rootScope.control['Researcher']) {
 						$rootScope.participant = 'Researcher';
+						$rootScope.role = 'Researcher';
 					}
-					else if(hex_md5($rootScope.userEmail) == $rootScope.control['Reviewer']) {
+
+					//else if(hex_md5($rootScope.userEmail) == $rootScope.control['Reviewer']) {
+					else if($rootScope.control['Reviewer'].indexOf(hex_md5($rootScope.userEmail)) > -1) {
 						$rootScope.participant = 'Reviewer';
+						$rootScope.role = 'Reviewer';
+						if($rootScope.control['Government'].indexOf(hex_md5($rootScope.userEmail)) > -1) {
+							$rootScope.role = 'Govt reviewer';
+						}
+						if($rootScope.control['Civil Society'].indexOf(hex_md5($rootScope.userEmail)) > -1) {
+							$rootScope.role = 'Csoc reviewer';
+						}
+						console.log($rootScope.role)
 					}
 
 					$rootScope.surveyStatus = $rootScope.control['Status'];
@@ -96,7 +109,7 @@ angular.module('W3FSurveyLoader', [ 'GoogleSpreadsheets' ])
 				$rootScope.anonymous = $rootScope.participant == 'Anonymous';
 				$rootScope.country = $rootScope.control['Country'];
 
-				if($rootScope.anonymous && !$rootScope.userEmail.match(/@(thewebindex\.org|webfoundation\.org)$/)) {
+				if($rootScope.anonymous && !$rootScope.userEmail.match(/@(involve\.org.uk|opendataservices\.coop)$/)) {
 					q.reject();
 					return;
 				}

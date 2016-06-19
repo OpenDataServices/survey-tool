@@ -5,7 +5,7 @@
 <div class="notes ng-hide" ng-show="opened">
 	<div class="notes-header">
 		<div class="close-notes icon-cancel-circle" ng-click="opened=false"></div>
-		<ng-pluralize count="notes.length" when="{ 'one': '1 Note', 'other': '{} Notes' }" class="note-count"></ng-pluralize>
+		<ng-pluralize count="notes.length" when="{ 'one': '1 unresolved note', 'other': '{} unresolved notes' }" class="note-count"></ng-pluralize>
 	</div>
 
 	<div class="note-list">
@@ -19,7 +19,7 @@
 
 	<div class="notes-actions" ng-show="!addingNote && !$rootScope.readOnly">
 		<button class="add-note" ng-click="addingNote=true"><span class="icon-pencil"></span> Add Note</button>
-		<a class="note-resolve icon-checkmark-circle" title="Resolve Notes" ng-if="notes.length > 0" ng-click="resolve(notes)"></a>
+		<a ng-show="participant == 'Researcher' || participant == 'Coordinator'" class="note-resolve icon-checkmark-circle" title="Resolve Notes" ng-if="notes.length > 0" ng-click="resolve(notes)"></a>
 	</div>
 
 	<div class="add-note-form" ng-show="addingNote && !$rootScope.readOnly">

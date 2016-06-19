@@ -525,7 +525,7 @@ angular.module('W3FWIS', [ 'GoogleSpreadsheets', 'GoogleDrive', 'W3FSurveyLoader
 									var record = {
 										questionid: note.questionid,
 										date: new Date().format(),
-										party: $rootScope.participant,
+										party: $rootScope.role,
 										user: note.user,
 										field: note.field,
 										note: note.note
@@ -548,7 +548,7 @@ angular.module('W3FWIS', [ 'GoogleSpreadsheets', 'GoogleDrive', 'W3FSurveyLoader
 									var record = {
 										questionid: note.questionid,
 										date: note.date,
-										party: $rootScope.participant,
+										party: $rootScope.role,
 										user: note.user,
 										field: note.field,
 										note: note.note,
@@ -882,6 +882,9 @@ angular.module('W3FWIS', [ 'GoogleSpreadsheets', 'GoogleDrive', 'W3FSurveyLoader
 				$rootScope.$watch('participant', function(value) {
 					$scope.participant = value;
 				});
+				$rootScope.$watch('userEmail', function(value) {
+					$scope.userEmail = value;
+				});
 
 				// Import scope variables
 				$scope.question = $scope.$parent.question;
@@ -921,7 +924,7 @@ angular.module('W3FWIS', [ 'GoogleSpreadsheets', 'GoogleDrive', 'W3FSurveyLoader
 
 					$rootScope.notes[$scope.question.questionid].push({
 						questionid: $scope.question.questionid,
-						party: $rootScope.participant,
+						party: $rootScope.role,
 						field: $scope.field,
 						note: $scope.newNote,
 						user: $rootScope.userEmail,
