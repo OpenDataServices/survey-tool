@@ -18,9 +18,9 @@
  */
 
 
-var MASTER_KEY = '1sgALrROoskjpH0iE3RBCqwjh9z1cljJIGqv-TX9brKY';
-var CLIENT_ID = '383174317288-8ou7gq7vkg1orpkb9min96ngko2jli80.apps.googleusercontent.com';
-var SERVICE_ACCOUNT = 'ogp-survey@ogp-survey.iam.gserviceaccount.com';
+var MASTER_KEY = '%MASTER_KEY%';
+var CLIENT_ID = '%CLIENT_ID%';
+var SERVICE_ACCOUNT = '%SERVICE_ACCOUNT%';
 var SCOPE = 'https://spreadsheets.google.com/feeds https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/drive.file';
 
 // Gimme a range op!
