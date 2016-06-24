@@ -77,12 +77,12 @@ if( !$result ) {
 	exit( 0 );
 }
 
-list( $headers, $body ) = split( "\r\n\r\n", $result, 2 );
+list( $headers, $body ) = preg_split( "/\r\n\r\n/", $result, 2 );
 
-$headers = split( "\r\n", $headers );
+$headers = preg_split( "/\r\n/", $headers );
 
 foreach( $headers as $header ) {
-	list( $header_name, $header_val ) = split( ':', $header, 2 );
+	list( $header_name, $header_val ) = preg_split( '/:/', $header, 2 );
 
 	$headers[$header_name] = $header;
 }
