@@ -404,7 +404,7 @@ angular.module('W3FSurveyLoader', [ 'GoogleSpreadsheets' ])
 				gs.getSheets(answerKey, $rootScope.accessToken).then(function(sheets) {
 					for(var sheet in $rootScope.answerSheets) {
 						if(!sheets[sheet]) {
-							$rootScope.error = "Invalid response data";
+							$rootScope.error = "Invalid response data: it appears this survey is not currently shared with you. This may be because the deadline for your input has passed, or may be because you are logged in with the wrong Google account. Please try using a new Incognito Browser Window, or logging out from all google accounts on this machine before refreshing this link.";
 							return;
 						}
 						else {

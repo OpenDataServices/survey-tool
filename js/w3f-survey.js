@@ -363,7 +363,7 @@ angular.module('W3FWIS', [ 'GoogleSpreadsheets', 'GoogleDrive', 'W3FSurveyLoader
 
 					// Notify caller that it was last accessed less than an hour ago and may be
 					// locked
-					if(timeDiff_s < 3600 && !$rootScope.readOnly) {
+					if(timeDiff_s < 3600 && !$rootScope.readOnly && $rootScope.participant != 'Reviewer') {
 						status.locked = { time: matches[1], role: matches[2] };
 					}
 				}
@@ -673,7 +673,7 @@ angular.module('W3FWIS', [ 'GoogleSpreadsheets', 'GoogleDrive', 'W3FSurveyLoader
 
 					// Check the lock before making any changes
 					loader.loadControlValues().then(function() {
-						if($rootScope.control['Last Access'] == $rootScope.lockString) {
+						if($rootScope.control['Last Access'] == $rootScope.lockString || $rootScope.participant == 'Reviewer') {
 							q.resolve();
 						}
 						else {
